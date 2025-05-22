@@ -70,6 +70,7 @@
     $("#offer").on('click',function(){ 
     const min = 1
     const max = 3
+    const choices = [0, 1, 2].filter(n => n !== firstNumber); 
     let randomnumber = Math.floor(Math.random()*(max-min+1))
     console.log(randomnumber);
     if(randomnumber ==0){
@@ -99,17 +100,17 @@
 
     $(document).on('click',"#great",function(){ 
     const min = 1
-    const max = 2
+    const max = 100
     const randomnumber = Math.floor(Math.random()*(max-min+1))
     console.log(randomnumber);
-    if(firstNumber == 1)
+    if(randomnumber <= 90)
     {
         document.getElementById('finish').innerHTML = '勝利';
         document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
     }
         
        console.log(randomnumber);
-    if(randomnumber ==1){
+    if(randomnumber >= 91){
         document.getElementById('finish').innerHTML = '敗北';
         document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
     }
@@ -117,15 +118,15 @@
 
     $(document).on('click',"#nice",function(){ 
     const min = 1
-    const max = 3
+    const max = 100
     const randomnumber = Math.floor(Math.random()*(max-min+1))
     console.log(randomnumber);
-    if(randomnumber ==0){
+    if(randomnumber <= 70){
         document.getElementById('finish').innerHTML = '勝利';
         document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
     }
        console.log(randomnumber);
-    if(randomnumber >=1){
+    if(randomnumber >= 71){
         document.getElementById('finish').innerHTML = '敗北';
         document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
     }
@@ -134,15 +135,15 @@
 
     $(document).on('click',"#none",function(){ 
     const min = 1
-    const max = 10
+    const max = 100
     const randomnumber = Math.floor(Math.random()*(max-min+1))
     console.log(randomnumber);
-    if(randomnumber ==0){
+    if(randomnumber <= 40){
         document.getElementById('finish').innerHTML = '勝利';
         document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
     }
        console.log(randomnumber);
-    if(randomnumber >=1){
+    if(randomnumber >= 41){
         document.getElementById('finish').innerHTML = '敗北';
         document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
     }
