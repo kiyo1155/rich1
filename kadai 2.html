@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/kadai2.css">
+    <title>RIZIN物語</title>
+    <meta name="description" content="RIZINfighterの戦いをてのひらで開催させよう">
+</head>
+<body>
+    <div class="content">
+        <h2>RIZIN FIGHTER</h2>
+        <div>
+            <button id="me" class="fighterselect">自分の選手を選ぶ</button>
+            <button id="offer">相手の選手を選ぶ</button>
+        </div>
+        <div class="fighterselectresult">
+            <div class="box" id="mystart">赤コーナー</div>
+            <p class="vs">VS</p>
+            <div class="box" id="start">青コーナー</div>
+        </div>
+        <p id="finish">下から作戦を選べ</p>
+    </div>
+    <div class="select">
+        <div id="select1" class="selectbox"></div>
+        <div id="select2" class="selectbox"></div>
+        <div id="select3" class="selectbox"></div>
+    </div>
+
+    <div id="reset"></div>
+
+<!-- 音楽関係 -->
+    <audio id="bgm" src="images/リングサイドのゴング.mp3"></audio>
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $("#me").on('click',function(){ 
+    const min = 1
+    const max = 3
+    const firstnumber = Math.floor(Math.random()*(max-min+1))
+    console.log(firstnumber);
+    if(firstnumber ==0){
+        document.getElementById('mystart').innerHTML = '<img src="images/human4.png" alt="朝倉未来" class="fighter">';
+        // document.getElementById('select1').innerHTML = '<p id="great">打撃で攻撃</p>';
+        // document.getElementById('select2').innerHTML = '<p id="none">寝技で攻撃</p>';
+        // document.getElementById('select3').innerHTML = '<p id="nice">判定まで凌ぐ</p>';
+        document.getElementById('bgm').play();
+
+    }
+    if(firstnumber ==1){
+        document.getElementById('mystart').innerHTML = '<img src="images/human5.png" alt="萩原京平" class="fighter">';
+        // document.getElementById('select1').innerHTML = '<p id="great">打撃で攻撃</p>';
+        // document.getElementById('select2').innerHTML = '<p id="none">寝技で攻撃</p>';
+        // document.getElementById('select3').innerHTML = '<p id="none">判定まで凌ぐ</p>';
+        document.getElementById('bgm').play();
+    }
+    if(firstnumber ==2
+    ){
+        document.getElementById('mystart').innerHTML = '<img src="images/human6.png" alt="鈴木千裕" class="fighter">';
+        // document.getElementById('select1').innerHTML = '<p id="none">打撃で攻撃</p>';
+        // document.getElementById('select2').innerHTML = '<p id="nice">寝技で攻撃</p>';
+        // document.getElementById('select3').innerHTML = '<p id="none">判定まで凌ぐ</p>';
+        document.getElementById('bgm').play();
+    }
+    })
+
+
+    let firstNumber = null;
+
+    $("#offer").on('click',function(){ 
+    const min = 1
+    const max = 3
+    let randomnumber = Math.floor(Math.random()*(max-min+1))
+    console.log(randomnumber);
+    if(randomnumber ==0){
+        document.getElementById('start').innerHTML = '<img src="images/human4.png" alt="朝倉未来" class="fighter">';
+        document.getElementById('select1').innerHTML = '<p id="great">打撃で攻撃</p>';
+        document.getElementById('select2').innerHTML = '<p id="none">寝技で攻撃</p>';
+        document.getElementById('select3').innerHTML = '<p id="nice">判定まで凌ぐ</p>';
+        document.getElementById('bgm').play();
+
+    }
+    if(randomnumber ==1){
+        document.getElementById('start').innerHTML = '<img src="images/human5.png" alt="萩原京平" class="fighter">';
+        document.getElementById('select1').innerHTML = '<p id="great">打撃で攻撃</p>';
+        document.getElementById('select2').innerHTML = '<p id="none">寝技で攻撃</p>';
+        document.getElementById('select3').innerHTML = '<p id="none">判定まで凌ぐ</p>';
+        document.getElementById('bgm').play();
+    }
+    if(randomnumber ==2
+    ){
+        document.getElementById('start').innerHTML = '<img src="images/human6.png" alt="鈴木千裕" class="fighter">';
+        document.getElementById('select1').innerHTML = '<p id="none">打撃で攻撃</p>';
+        document.getElementById('select2').innerHTML = '<p id="nice">寝技で攻撃</p>';
+        document.getElementById('select3').innerHTML = '<p id="none">判定まで凌ぐ</p>';
+        document.getElementById('bgm').play();
+    }
+    })
+
+    $(document).on('click',"#great",function(){ 
+    const min = 1
+    const max = 2
+    const randomnumber = Math.floor(Math.random()*(max-min+1))
+    console.log(randomnumber);
+    if(firstNumber == 1)
+    {
+        document.getElementById('finish').innerHTML = '勝利';
+        document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
+    }
+        
+       console.log(randomnumber);
+    if(randomnumber ==1){
+        document.getElementById('finish').innerHTML = '敗北';
+        document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
+    }
+    })
+
+    $(document).on('click',"#nice",function(){ 
+    const min = 1
+    const max = 3
+    const randomnumber = Math.floor(Math.random()*(max-min+1))
+    console.log(randomnumber);
+    if(randomnumber ==0){
+        document.getElementById('finish').innerHTML = '勝利';
+        document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
+    }
+       console.log(randomnumber);
+    if(randomnumber >=1){
+        document.getElementById('finish').innerHTML = '敗北';
+        document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
+    }
+    
+    })
+
+    $(document).on('click',"#none",function(){ 
+    const min = 1
+    const max = 10
+    const randomnumber = Math.floor(Math.random()*(max-min+1))
+    console.log(randomnumber);
+    if(randomnumber ==0){
+        document.getElementById('finish').innerHTML = '勝利';
+        document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
+    }
+       console.log(randomnumber);
+    if(randomnumber >=1){
+        document.getElementById('finish').innerHTML = '敗北';
+        document.getElementById('reset').innerHTML = '<button>もう一度戦う</button>';
+    }
+    
+    })
+
+     $(document).on('click',"#reset",function(){ 
+        location.reload();
+    })
+
+
+    
+
+</script>
+    
+</body>
+</html>
